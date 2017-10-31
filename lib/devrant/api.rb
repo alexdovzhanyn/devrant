@@ -1,20 +1,19 @@
 module Devrant
-  module Api
-    include HTTParty
+  class Api
+    attr_reader :rants
+    
     BASE_URI = 'https://www.devrant.io/api'
 
-    def self.extended(base)
-      base.include(HTTParty)
-      base.default_options = {
+    def initialize
+      options = {
         query: {
           app: 3
         },
         base_uri: BASE_URI
       }
-    end
 
-    def structuralize(json)
-      JSON.parse(json.body, object_class: OpenStruct)
+      @rants = Devrant::Rants.new
+      @rants.class.default_options = options
     end
   end
 end

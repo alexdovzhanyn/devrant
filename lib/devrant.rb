@@ -6,5 +6,9 @@ require "devrant/api"
 require "devrant/rants"
 
 module Devrant
-  
+
+  def structuralize(json)
+    JSON.parse(json.body, object_class: OpenStruct)
+  end
+
 end

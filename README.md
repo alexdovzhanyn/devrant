@@ -1,8 +1,7 @@
 # Devrant
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/devrant`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem is the unnofficial wrapper for the devRant API. It provides convinience methods and an interface to easily integrate devRant into
+your ruby projects.
 
 ## Installation
 
@@ -22,7 +21,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Include this gem into your project:
+
+```ruby
+require 'devrant'
+```
+
+Initialize the devRant client:
+
+```ruby 
+devRant = Devrant::Api.new
+```
+
+### Rants
+
+Getting all rants:
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.get_rants
+```
 
 ## Development
 
@@ -32,7 +53,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/devrant. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alexdovzanyn/devrant. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +61,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the Devrant project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/devrant/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Devrant project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alexdovzhanyn/devrant/blob/master/CODE_OF_CONDUCT.md).
