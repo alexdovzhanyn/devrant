@@ -35,14 +35,36 @@ devRant = Devrant::Api.new
 
 ### Rants
 
-Getting all rants:
+**Getting all rants:**
 
 ```ruby
 require 'devrant'
 
 devRant = Devrant::Api.new
 
-devRant.rants.get_rants
+devRant.rants.all
+```
+
+**Getting rant by ID:**
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.get_rant(1234)
+```
+
+### Users
+
+**Getting User by ID:**
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.users.get_user(1234)
 ```
 
 ## Development
