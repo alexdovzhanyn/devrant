@@ -1,4 +1,8 @@
+[![Gem Version](https://badge.fury.io/rb/devrant.svg)](https://badge.fury.io/rb/devrant)
+
 # Devrant
+
+![devRant](https://devrant.com/static/devrant/img/landing/features-avatars.png)
 
 This gem is the unnofficial wrapper for the devRant API. It provides convinience methods and an interface to easily integrate devRant into
 your ruby projects.
