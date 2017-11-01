@@ -1,19 +1,31 @@
 module Devrant
   class Api
-    attr_reader :rants
-    
-    BASE_URI = 'https://www.devrant.io/api'
+    HTTP_OPTIONS = {
+      query: {
+        app: 3
+      },
+      base_uri: 'https://www.devrant.io/api'
+    } 
 
     def initialize
-      options = {
-        query: {
-          app: 3
-        },
-        base_uri: BASE_URI
+      subclasses = {
+        rants: Devrant::Rants,
+        users: Devrant::Users
       }
 
-      @rants = Devrant::Rants.new
-      @rants.class.default_options = options
+      initialize_subclasses(subclasses)
+    end
+
+    private
+
+    def initialize_subclasses(classes)
+      classes.each do |variable, classname|
+        self.instance_variable_set("@#{variable}", classname.new)
+        self.instance_variable_get("@#{variable}").class.default_options = HTTP_OPTIONS
+        self.singleton_class.class_eval do
+          attr_reader variable.to_sym
+        end
+      end
     end
   end
 end
