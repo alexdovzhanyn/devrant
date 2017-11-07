@@ -1,7 +1,6 @@
 module Devrant
   class Rants
     include HTTParty
-    include Devrant
 
     def all
       structuralize(self.class.get('/devrant/rants')).rants
