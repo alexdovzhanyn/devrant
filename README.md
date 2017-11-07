@@ -59,6 +59,32 @@ devRant = Devrant::Api.new
 devRant.rants.get_rant(1234)
 ```
 
+**Filtering Rants**
+
+Allows you to fetch rants based on certain filters. Takes in a hash of parameters.
+
+| Method  | Parameters      |
+|:--------|:----------------|
+|get_rants|limit, sort, skip|
+
+_Parameter Values_
+
+| Parameter      | Values    | Description                                         |
+|:---------------|:----------|:----------------------------------------------------|
+|limit _Optional_|any integer| Sets a maximum limit to the amount of rants returned|
+|sort _Optional_ |'recent', 'algo', 'top'| Specifies order in which to sort the rants|
+|skip _Optional_ |any integer| Specifies how many rants to skip. Useful for pagination|
+
+_Example:_
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.get_rants({limit: 10, sort: 'algo', skip: 5})
+```
+
 ### Users
 
 **Getting User by ID:**
