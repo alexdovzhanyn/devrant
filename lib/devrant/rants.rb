@@ -1,6 +1,7 @@
 module Devrant
   class Rants
     include HTTParty
+    include Devrant    
 
     def all
       structuralize(self.class.get('/devrant/rants')).rants
@@ -12,6 +13,14 @@ module Devrant
       return rant unless rant.nil?
 
       raise ArgumentError.new("No rant found for id #{id}")
+    end
+
+    def get_rants(params={})
+      options = {
+        query: self.class.default_options[:query].merge(params)
+      }
+
+      rants = structuralize(self.class.get("/devrant/rants", options)).rants 
     end
 
   end

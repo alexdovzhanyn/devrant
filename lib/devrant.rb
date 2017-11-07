@@ -1,6 +1,7 @@
 require "devrant/version"
 require "httparty"
 require "json"
+require "pry"
 require "devrant/api"
 require "devrant/rants"
 require "devrant/users"

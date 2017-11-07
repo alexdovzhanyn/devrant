@@ -2,7 +2,7 @@ module Devrant
   class Api
     HTTP_OPTIONS = {
       query: {
-        app: 3
+        app: 3 # This is a temporary validation param that will likely be removed soon
       },
       base_uri: 'https://www.devrant.io/api'
     } 

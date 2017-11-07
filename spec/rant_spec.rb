@@ -15,4 +15,9 @@ RSpec.describe Devrant::Rants do
     devRant = Devrant::Api.new
     expect { devRant.rants.get_rant(1) }.to raise_error(ArgumentError)
   end
+
+  it "can filter rants" do 
+    devRant = Devrant::Api.new
+    expect(devRant.rants.get_rants({limit: 3}).length).to eq(3)
+  end
 end
