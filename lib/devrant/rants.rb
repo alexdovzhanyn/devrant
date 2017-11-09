@@ -7,6 +7,22 @@ module Devrant
       structuralize(self.class.get('/devrant/rants')).rants
     end
 
+    def weekly
+      structuralize(self.class.get('/devrant/weekly-rants')).rants
+    end
+
+    def random
+      structuralize(self.class.get('/devrant/rants/surprise')).rant
+    end
+
+    def stories
+      structuralize(self.class.get('/devrant/story-rants')).rants
+    end
+    
+    def collabs
+      structuralize(self.class.get('/devrant/collabs')).rants
+    end
+
     def get_rant(id)
       rant = structuralize(self.class.get("/devrant/rants/#{id}")).rant
 
@@ -16,11 +32,11 @@ module Devrant
     end
 
     def get_rants(params={})
-      options = {
-        query: self.class.default_options[:query].merge(params)
-      }
+      structuralize(self.class.get('/devrant/rants', extend_request_query(params))).rants 
+    end
 
-      rants = structuralize(self.class.get("/devrant/rants", options)).rants 
+    def search(term)
+      structuralize(self.class.get('/devrant/search', extend_request_query({term: term}))).results
     end
 
   end

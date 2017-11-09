@@ -85,6 +85,66 @@ devRant = Devrant::Api.new
 devRant.rants.get_rants({limit: 10, sort: 'algo', skip: 5})
 ```
 
+**Getting the Weekly Rants**
+
+Find all rants that are featured weekly
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.weekly
+```
+
+**Getting Story Rants**
+
+Get rants that are categorized as a 'story'
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.stories
+```
+
+**Getting Collabs**
+
+Fetches all collabs
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.collabs
+```
+
+**Searching Rants**
+
+Search rants by a specific search term
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.search('your search term here')
+```
+
+**Getting a Random Rant**
+
+Returns a random rant with at least 15++
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.rants.random
+```
+
 ### Users
 
 **Getting User by ID:**
@@ -95,6 +155,16 @@ require 'devrant'
 devRant = Devrant::Api.new
 
 devRant.users.get_user(1234)
+```
+
+**Getting User ID from Username**
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.users.get_user_id('RuntimeError')
 ```
 
 ## Development
@@ -114,3 +184,18 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## Code of Conduct
 
 Everyone interacting in the Devrant project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alexdovzhanyn/devrant/blob/master/CODE_OF_CONDUCT.md).
+
+# Endpoints to Implement
+
+- ~~/devrant/rants~~
+- ~~/devrant/rants/:id~~
+- ~~/users/get-user-id~~
+- ~~/users/:id~~
+- /comments
+- /vote
+- ~~/devrant/search~~
+- ~~/devrant/weekly-rants~~
+- ~~/devrant/story-rants~~
+- ~~/devrant/collabs~~
+- ~~/devrant/rants/surprise~~
+- /users/auth-token

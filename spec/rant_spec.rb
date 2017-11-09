@@ -20,4 +20,30 @@ RSpec.describe Devrant::Rants do
     devRant = Devrant::Api.new
     expect(devRant.rants.get_rants({limit: 3}).length).to eq(3)
   end
+
+  it "can fetch a random rant" do
+    devRant = Devrant::Api.new
+    expect(devRant.rants.random.id).not_to eq(nil)
+  end
+
+  it "can fetch weekly rants" do
+    devRant = Devrant::Api.new
+    expect(devRant.rants.weekly).not_to be_empty
+  end
+
+  it "can fetch stories" do
+    devRant = Devrant::Api.new
+    expect(devRant.rants.stories).not_to be_empty
+  end
+
+  it "can fetch collabs" do
+    devRant = Devrant::Api.new
+    expect(devRant.rants.collabs).not_to be_empty
+  end
+
+  it "can search rants" do
+    devRant = Devrant::Api.new
+    expect(devRant.rants.search('wtf')).not_to be_empty
+  end
+
 end

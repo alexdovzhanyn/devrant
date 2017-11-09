@@ -12,4 +12,8 @@ module Devrant
     JSON.parse(json.body, object_class: OpenStruct)
   end
 
+  def extend_request_query(options)
+    { query: self.class.default_options[:query].merge(options) }
+  end
+
 end
