@@ -12,7 +12,7 @@ end
 task :export do
   system 'rake'
   system 'gem build devrant.gemspec'
-  new_gem = Dir.glob("pkg/*").max_by {|f| File.mtime(f)}
+  new_gem = Dir.glob("*").max_by {|f| File.mtime(f)}
   
   system "gem push #{new_gem}"
 end
