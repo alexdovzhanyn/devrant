@@ -145,6 +145,25 @@ devRant = Devrant::Api.new
 devRant.rants.random
 ```
 
+**Commenting on a Rant**
+
+Post a comment. You must authenticate before trying to post a comment.
+
+
+| Method  | Parameters                                                                               |
+|:--------|:-----------------------------------------------------------------------------------------|
+|comment  |rant_id (int), comment_content (string), token_id (int), token_key (string), user_id (int)|
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+auth = devRant.users.authenticate('username', 'password')
+
+devRant.rants.comment(12345, 'This is my comment', auth.id, auth.key, auth.user_id)
+```
+
 ### Users
 
 **Getting User by ID:**
@@ -165,6 +184,18 @@ require 'devrant'
 devRant = Devrant::Api.new
 
 devRant.users.get_user_id('RuntimeError')
+```
+
+**Authenticating a User**
+
+Returns an auth object with a token id, token key, and user id.
+
+```ruby
+require 'devrant'
+
+devRant = Devrant::Api.new
+
+devRant.users.authenticate('username', 'password')
 ```
 
 ## Development

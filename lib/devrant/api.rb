@@ -22,6 +22,7 @@ module Devrant
       classes.each do |variable, classname|
         self.instance_variable_set("@#{variable}", classname.new)
         self.instance_variable_get("@#{variable}").class.default_options = HTTP_OPTIONS
+        self.instance_variable_get("@#{variable}").parent = self
         self.singleton_class.class_eval do
           attr_reader variable.to_sym
         end

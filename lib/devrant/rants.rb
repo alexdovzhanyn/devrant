@@ -3,6 +3,8 @@ module Devrant
     include HTTParty
     include Devrant    
 
+    attr_accessor :parent
+
     def all
       structuralize(self.class.get('/devrant/rants')).rants
     end
@@ -32,11 +34,15 @@ module Devrant
     end
 
     def get_rants(params={})
-      structuralize(self.class.get('/devrant/rants', extend_request_query(params))).rants 
+      structuralize(self.class.get('/devrant/rants', extend_request(:query, params))).rants 
     end
 
     def search(term)
-      structuralize(self.class.get('/devrant/search', extend_request_query({term: term}))).results
+      structuralize(self.class.get('/devrant/search', extend_request(:query, {term: term}))).results
+    end
+
+    def comment(rant, content, token_id, token_key, user_id)
+      structuralize(self.class.post("/devrant/rants/#{rant}/comments", extend_request(:body, {token_id: token_id, token_key: token_key, user_id: user_id, comment: content})))
     end
 
   end
