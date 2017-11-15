@@ -222,11 +222,11 @@ Everyone interacting in the Devrant project’s codebases, issue trackers, chat 
 - ~~/devrant/rants/:id~~
 - ~~/users/get-user-id~~
 - ~~/users/:id~~
-- /comments
+- ~~/comments~~
 - /vote
 - ~~/devrant/search~~
 - ~~/devrant/weekly-rants~~
 - ~~/devrant/story-rants~~
 - ~~/devrant/collabs~~
 - ~~/devrant/rants/surprise~~
-- /users/auth-token
+- ~~/users/auth-token~~
